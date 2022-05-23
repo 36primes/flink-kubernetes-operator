@@ -24,7 +24,7 @@ pipeline {
                 sh '''
                     JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
                     mvn --version
-                    mvn clean install
+                    mvn clean install -DskipTests=true
                 '''
             }
         }
