@@ -21,7 +21,8 @@ pipeline {
     stages {
         stage('Maven Build') {
             steps {
-                sh 'JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64'
+                sh 'export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64'
+                sh 'mvn --version'
                 sh 'mvn clean install'
             }
         }
