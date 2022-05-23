@@ -31,6 +31,7 @@ pipeline {
         stage('Docker Build&Push') {
             steps {
                 sh '''
+                    export DOCKER_BUILDKIT=1
                     docker build -t fastdata/flink-kubernetes-operator:$BUILD_NUMBER .
                     docker tag fastdata/flink-kubernetes-operator:$BUILD_NUMBER 36primes/fastdata-flink-kubernetes-operator:$BUILD_NUMBER
                     docker push 36primes/fastdata-flink-kubernetes-operator:$BUILD_NUMBER
